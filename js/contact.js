@@ -35,7 +35,7 @@
 
     var label = btn.textContent;
     btn.disabled = true; btn.textContent = "Sending…";
-    fetch("https://api.web3forms.com/submit", {
+    fetch("47a2cc8b-e750-409c-a2cf-16363a37620b", {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify(Object.fromEntries(new FormData(form)))
