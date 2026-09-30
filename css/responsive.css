@@ -97,3 +97,4 @@
 .proj-row .logo-slot.light img{-webkit-mask-image:none; mask-image:none;}
 .proj-row .logo-slot.light::before{border-color:rgba(0,0,0,.08);}
 .proj-row .logo-slot.light::after{color:#8a8a8a;}
+

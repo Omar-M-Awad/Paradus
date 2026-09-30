@@ -54,10 +54,10 @@
 .stage.on .lbl{opacity:1; transform:translateY(0);}
 
 /* keep these ahead of the older sizes in responsive.css */
-.stages-wrap .trail-marker{width:64px; height:29px;}
+.stages-wrap .trail-marker{width:88px; height:36px;}
 .stages-wrap .trail-glow{width:34px; height:34px;}
 @media (max-width:640px){
-  .stages-wrap .trail-marker{width:46px; height:20.5px;}
+  .stages-wrap .trail-marker{width:62px; height:25.4px;}
   .stages-wrap .trail-glow{width:26px; height:26px;}
 }
 
