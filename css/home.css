@@ -1,0 +1,69 @@
+/* Home page: the animated stage tracker.
+   The motion itself is driven by js/tracker.js (one continuous, eased run along the path). */
+.stages-wrap{margin-top:50px; position:relative;}
+
+.stages-svg{
+  width:100%; height:26px; display:block; overflow:visible;
+  clip-path:inset(-30px 100% -30px 0);   /* hidden until the leopard reveals it */
+}
+.stages-wrap.done .stages-svg{clip-path:none;}
+
+.zigzag-path{
+  fill:none; stroke:var(--gold-bright); stroke-width:1.75; vector-effect:non-scaling-stroke;
+  stroke-linecap:round; stroke-linejoin:round;
+  filter:drop-shadow(0 0 3px var(--gold));
+}
+
+.paw{fill:var(--muted2); opacity:0; r:0;}
+.paw.final{fill:var(--gold);}
+.paw.on{animation:pawIn .7s cubic-bezier(.22,1,.36,1) forwards;}
+.paw.final.on{animation:pawInFinal .7s cubic-bezier(.22,1,.36,1) forwards, pawPulse 2.6s ease-in-out .9s infinite;}
+@keyframes pawIn{from{opacity:0; r:0;} to{opacity:1; r:2.2;}}
+@keyframes pawInFinal{from{opacity:0; r:0;} to{opacity:1; r:2.6;}}
+@keyframes pawPulse{0%,100%{filter:drop-shadow(0 0 3px var(--gold));} 50%{filter:drop-shadow(0 0 9px var(--gold));}}
+
+.trail-glow{
+  position:absolute; left:0; top:0; width:26px; height:26px; border-radius:50%;
+  background:radial-gradient(circle, rgba(230,201,138,.55) 0%, rgba(230,201,138,0) 70%);
+  filter:blur(3px); opacity:0; pointer-events:none;
+  transform:translate3d(0,0,0) translate(-50%,-50%);
+  transition:opacity .6s ease;
+}
+.stages-wrap.running .trail-glow{opacity:1;}
+.stages-wrap.done .trail-glow{opacity:0;}
+
+.trail-marker{
+  position:absolute; left:0; top:0; width:64px; height:29px;
+  opacity:0; pointer-events:none; will-change:transform;
+  transform:translate3d(0,0,0) translate(-50%,-100%);
+  transition:opacity .5s ease;
+}
+.stages-wrap.running .trail-marker, .stages-wrap.done .trail-marker{opacity:1;}
+.trail-run{
+  display:block; width:100%; height:100%; color:var(--gold-bright);
+  filter:drop-shadow(0 0 5px var(--gold));
+}
+
+.stages{display:flex; align-items:flex-start; margin-top:6px; flex-wrap:wrap; gap:0;}
+.stage{display:flex; flex-direction:column; align-items:center; flex:1; min-width:80px;}
+.stage .lbl{
+  font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted2);
+  opacity:0; transform:translateY(6px); transition:opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1);
+}
+.stage.final .lbl{color:var(--gold-bright);}
+.stage.on .lbl{opacity:1; transform:translateY(0);}
+
+/* keep these ahead of the older sizes in responsive.css */
+.stages-wrap .trail-marker{width:64px; height:29px;}
+.stages-wrap .trail-glow{width:34px; height:34px;}
+@media (max-width:640px){
+  .stages-wrap .trail-marker{width:46px; height:20.5px;}
+  .stages-wrap .trail-glow{width:26px; height:26px;}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .paw.on, .paw.final.on{animation:none; opacity:1; r:2.2;}
+  .paw.final.on{r:2.6;}
+  .trail-marker, .trail-glow{display:none;}
+  .stage .lbl{transition:none;}
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#09090b">
+<title>Contact — Paradus</title>
+<meta name="description" content="Start with the problem. Tell Paradus what you're bringing — an idea, a brand, a rebrand or a specific capability.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-root="" data-page="contact">
+
+<div id="site-header"></div>
+
+<main>
+    <section class="hero hero-contact">
+      <div class="wrap">
+        <div class="hero-content">
+          <h1>Start with <em>the</em> problem.</h1>
+          <p class="lead">Bring what you have — an idea, a challenge, or a direction. We'll build the rest.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="wrap">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <span class="eyebrow">Get In Touch</span>
+            <h2>Tell us what you're bringing.</h2>
+            <p>Select what fits, then fill in a few details. No finished brief required.</p>
+            <div class="bring-grid" id="bringGrid">
+              <div class="bring-card" data-val="I have an idea">I Have an Idea</div>
+              <div class="bring-card" data-val="I need a brand">I Need a Brand</div>
+              <div class="bring-card" data-val="I need a rebrand">I Need a Rebrand</div>
+              <div class="bring-card" data-val="I need a specific capability">A Specific Capability</div>
+              <div class="bring-card" data-val="I need strategic direction">Strategic Direction</div>
+              <div class="bring-card" data-val="I'm not sure yet">I'm Not Sure Yet</div>
+            </div>
+            <p class="form-note form-note--spaced">Prefer email? Write directly to<br><a href="mailto:hello@paradus.studio" class="link-gold" data-email>hello@paradus.studio</a></p>
+          </div>
+          <form class="form-wrap form-wrap--flush" id="inquiryForm">
+            <input type="hidden" name="access_key" id="f-access-key" value="">
+            <input type="hidden" name="subject" value="New inquiry — Paradus">
+            <input type="hidden" name="from_name" value="Paradus site">
+            <div class="form-row">
+              <div class="field"><label>Name *</label><input type="text" required id="f-name" name="name"></div>
+              <div class="field"><label>Email *</label><input type="email" required id="f-email" name="email"></div>
+            </div>
+            <div class="field"><label>Company / Project</label><input type="text" id="f-company" name="company"></div>
+            <div class="field"><label>What are you working on? *</label><textarea required id="f-about" name="project_details"></textarea></div>
+            <div class="form-row">
+              <div class="field">
+                <label>What do you need? *</label>
+                <select required id="f-need" name="need">
+                  <option value="" disabled selected>Select an option</option>
+                  <option>I have an idea</option>
+                  <option>I need a brand</option>
+                  <option>I need a rebrand</option>
+                  <option>I need a specific capability</option>
+                  <option>I need strategic direction</option>
+                  <option>I'm not sure yet</option>
+                </select>
+              </div>
+              <div class="field"><label>Budget / Timeline (optional)</label><input type="text" id="f-budget" name="budget" placeholder="e.g. $5k – 10k USD, 1–3 months"></div>
+            </div>
+            <button type="submit" class="btn solid" id="formSubmitBtn">Send Inquiry</button>
+            <div class="success" id="formSuccess">
+              <h4>Message sent.</h4>
+              <p>Your inquiry has been sent directly to Paradus. We'll get back to you shortly.</p>
+            </div>
+            <div class="success success--error" id="formError">
+              <h4>Couldn't send.</h4>
+              <p>Something went wrong on our end — please email us directly at <a href="mailto:hello@paradus.studio" class="link-gold" data-email>hello@paradus.studio</a> instead.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js" defer></script>
+<script src="js/layout.js" defer></script>
+<script src="js/reveal.js" defer></script>
+<script src="js/contact.js" defer></script>
+</body>
+</html>
